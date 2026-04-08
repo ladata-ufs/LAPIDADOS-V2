@@ -1,5 +1,4 @@
-![Logo](https://distinguished-pink-lfvydpth58.edgeone.app/Ladata_Extenso_Fundo_Cinza.png)
-
+![Logo](https://github.com/ladata-ufs/ladata-ufs.github.io/blob/main/Assets/LOGO-EXTENSO-CLARA.png)
 
 # Lapidados v2
 
