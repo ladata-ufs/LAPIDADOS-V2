@@ -1,14 +1,7 @@
-![Logo](https://distinguished-pink-lfvydpth58.edgeone.app/Ladata_Extenso_Fundo_Cinza.png)
+![Logo](https://github.com/ladata-ufs/ladata-ufs.github.io/blob/main/Assets/LOGO-EXTENSO-CLARA.png)
 
+>Esse é o repositório oficial do lapidados v2, o melhor programa de capacitação de toda a **Via Láctea**. Aqui é o ponto central de tudo o que vai acontecer, desde os roteiros/ementas que trazem as descrições das atividades até as pastas onde vocês adicionarão as entregas.
 
-# Lapidados v2
-
->Esse é o repositório oficial do lapidados v2, o melhor programa de capacitação de toda a **Via Láctea**.
-
-Aqui é o ponto central de tudo o que vai acontecer, desde os roteiros/ementas que trazem as descrições das atividades até as pastas onde vocês adicionarão as entregas.
-
-
----
 
 ## Sumário
 
