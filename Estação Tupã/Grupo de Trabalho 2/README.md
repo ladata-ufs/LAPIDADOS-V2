@@ -11,7 +11,7 @@
 
 **Prazo:** —
 
-**Integrantes:** Letícia Rezende • Luiza Accioly • Daivik Celeste • Guilherme Almeida • Ana Julia • Ricardo Nabuco • Ana Laylla
+**Integrantes:** [Letícia Rezende](https://github.com/leticiare) • [Luiza Accioly]() • [Daivik Celeste](https://github.com/dvkjain) • [Guilherme Almeida](https://github.com/guilhermesantana73) • [Ana Julia]() • [Ricardo Nabuco](https://github.com/ricardonabucoo) • [Ana Laylla]()
 
 ---
 
