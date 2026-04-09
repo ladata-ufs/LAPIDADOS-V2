@@ -1,117 +1,41 @@
-![Logo](https://distinguished-pink-lfvydpth58.edgeone.app/Ladata_Extenso_Fundo_Cinza.png)
+![Logo](https://github.com/ladata-ufs/ladata-ufs.github.io/blob/main/Assets/LOGO-EXTENSO-CLARA.png)
 
+> Este é o repositório do projeto **Estação Tupã**, desenvolvido no contexto do Lapidados V2. Aqui estão centralizadas as informações gerais do projeto, bem como a organização dos grupos de trabalho e suas respectivas entregas.
 
-# Lapidados v2
-
->Esse é o repositório oficial do lapidados v2, o melhor programa de capacitação de toda a **Via Láctea**.
-
-Aqui é o ponto central de tudo o que vai acontecer, desde os roteiros/ementas que trazem as descrições das atividades até as pastas onde vocês adicionarão as entregas.
-
-
----
-
-## Sumário
-
-* [Sobre](#sobre)
-* [Missão](#missão)
-* [Visão](#visão)
-* [Estrutura do Programa](#estrutura-do-programa)
-* [Desenvolvimento](#desenvolvimento)
-* [Entregas](#entregas)
-* [Estrutura do Repositório](#estrutura-do-repositório)
-* [Acompanhamento](#acompanhamento)
-
----
 
 ## Sobre
 
-O **Lapidados v2** é um programa de capacitação interno da LADATA voltado ao desenvolvimento prático de habilidades na área de dados.
+O projeto **Estação Tupã** é uma iniciativa desenvolvida inicialmente por alunos do Colégio Master e agora eles precisam de nós para darmos continuidade a esse *projeto incrível*.
 
-A proposta do programa é inserir os ligantes em projetos que simulam cenários reais, tanto do mercado de trabalho quanto da pesquisa acadêmica. Durante esse processo, os participantes são acompanhados pelos diretores da liga, que atuam como consultores ao longo do desenvolvimento.
+Seu objetivo é *monitorar a quantidade de chuvas na cidade de Aracaju*, a partir da **coleta** e **análise** de dados meteorológicos. A proposta envolve a construção de uma base de dados consistente que permita, futuramente, a realização de análises preditivas relacionadas a dados pluviométricos.
 
-
-
-## Missão
-
-Capacitar os ligantes, tornando-os mais preparados para atuar no mercado de trabalho e/ou seguir carreira acadêmica na área de dados.
+O projeto parte de um problema real: a ocorrência de alagamentos em diferentes regiões da cidade. A partir disso, busca-se gerar análises que possam contribuir para uma melhor compreensão desses eventos e, a longo prazo, apoiar **estratégias de prevenção**.
 
 
 
-## Visão
+## Estrutura do Projeto
 
-Formar cientistas de dados completos e gerar impacto na trajetória acadêmica e profissional dos participantes.
+O desenvolvimento é dividido em **Grupos de Trabalho (GTs)**, cada um responsável por uma etapa específica dentro do fluxo de dados do projeto.
 
+Nesta primeira fase, as frentes são:
 
-## Estrutura do Programa
+* Coleta e estruturação de dados de alagamento via web scraping
+* Análise, tratamento e integração de dados meteorológicos (INMET)
 
-Os participantes são organizados em grupos de trabalho (GTs), geralmente divididos em duas frentes com focos técnicos distintos.
+As responsabilidades, ferramentas e entregas de cada frente estão detalhadas nas respectivas pastas dos grupos.
 
-* Duração orientada à conclusão dos projetos
-* Reuniões quinzenais com os diretores
-* Organização interna dos grupos de forma autônoma
 
 
 ## Desenvolvimento
 
-O programa busca equilibrar o desenvolvimento de competências técnicas e comportamentais.
+O projeto segue a proposta do Lapidados de equilibrar **teoria** e **prática**, trabalhando com um *problema real* enquanto desenvolve *fundamentos técnicos e analíticos* na área de dados.
 
-**Competências técnicas:**
+Ao longo do desenvolvimento, os participantes irão lidar com etapas como coleta, tratamento, integração e análise de dados, além da organização do trabalho em equipe e comunicação de resultados.
 
-* Análise de dados
-* Ciência de dados
-* Engenharia de dados
-
-**Competências comportamentais:**
-
-* Trabalho em equipe
-* Gestão de tarefas
-* Comunicação e apresentação
-
-As tecnologias utilizadas são definidas pelos próprios grupos. O uso do GitHub é obrigatório para organização e versionamento dos projetos.
+As decisões técnicas |`linguagens, bibliotecas e ferramentas`| ficam a cargo de cada grupo, contudo, uso do GitHub é **OBRIGATÓRIO** para versionamento e organização do projeto.
 
 
-## Entregas
+## Observações
 
-As entregas variam conforme o projeto e podem incluir:
+Este repositório concentra apenas a **visão geral** do projeto. Os detalhes operacionais, instruções específicas e critérios de cada atividade estão descritos dentro das pastas de cada **Grupo de Trabalho**.
 
-* Código-fonte
-* Apresentações
-* Relatórios técnicos
-
-## Estrutura do Repositório
-
-A organização do repositório segue a estrutura abaixo:
-
-```
-/
-├── projeto/
-│   ├── grupo-1/
-│   │   ├── info-projeto.md
-│   │   └── entregas/
-│   ├── grupo-2/
-│   │   ├── info-projeto.md
-│   │   └── entregas/
-│   └── materiais-apoio/
-```
-
-Cada pasta representa um projeto do lapidados. Dentro delas estão organizados os grupos, informações importantes e materiais necessários para execução das atividades.
-
-As informações incluem:
-
-* Objetivos
-* Descrição das atividades
-* Requisitos de entrega
-* Referências
-* Critérios de análise
-
-## Acompanhamento
-
-O Lapidados não utiliza um modelo tradicional de avaliação.
-
-O acompanhamento é realizado com base na evolução dos participantes ao longo do projeto, considerando:
-
-* Aprendizado adquirido
-* Participação e engajamento
-* Dificuldades enfrentadas
-
-O feedback ocorre de forma contínua durante o desenvolvimento e é consolidado ao final de cada projeto.
