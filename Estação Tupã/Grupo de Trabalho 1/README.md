@@ -30,7 +30,7 @@ O estudo do tema pode ser feito de **maneira individual** ou **assíncrona**, co
 
 Ao fim, a equipe, em conjunto, deve produzir um projeto que servirá como base para os próximos passos do projeto **Estação Tupã**. Esse projeto consiste em trabalhar com dados meteorológicos do INMET, realizando seu *tratamento*, *organização* e *integração* com os dados coletados pelo GT 2.
 
-Além dos membros do grupo, o [Diretor de Projetos](), o [Presidente](https://github.com/cteimachDCOMP) e o [Vice-Presidente](https://github.com/maic0w) servirão como mediadores e consultores dos trabalhos, acompanhando a evolução do grupo!
+Além dos membros do grupo, o [Diretor de Projetos](https://github.com/LucasFe3152), o [Presidente](https://github.com/cteimachDCOMP) e o [Vice-Presidente](https://github.com/maic0w) servirão como mediadores e consultores dos trabalhos, acompanhando a evolução do grupo!
 
 ## Referências
 
