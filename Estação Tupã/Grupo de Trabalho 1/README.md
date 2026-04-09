@@ -10,7 +10,7 @@
 
 **Prazo:** —
 
-**Integrantes:** Carlos Augusto • Vinicius Leite • Yamí Nascimento • Francisco Almir • Paulo Rugani • Clarice Lopes • João Mota
+**Integrantes:** [Carlos Augusto](http://github.com/carlaojcomp) • [Vinicius Leite](https://github.com/viniXLeite) • [Yamí Nascimento](https://github.com/yamikrpto) • [Francisco Almir](https://github.com/AnotherOne07) • [Paulo Rugani](https://github.com/paulorugani) • [Clarice Lopes](https://github.com/claricefoliv) • [João Mota](https://github.com/joaovmotas)
 
 ---
 
