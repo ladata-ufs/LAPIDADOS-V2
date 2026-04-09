@@ -25,6 +25,17 @@ Nesta primeira fase, as frentes são:
 As responsabilidades, ferramentas e entregas de cada frente estão detalhadas nas respectivas pastas dos grupos.
 
 
+## Grupos de atuação
+|Grupo 1| Grupo 2|
+|---    |---     |
+|Carlos Augusto  | Letícia Rezende | 
+| Vinicius Leite | Luiza Accioly   |
+| Yamí Nascimento | Daivik Celeste |
+| Francisco Almir | Guilherme Almeida |
+| Paulo Rugani | Ana Julia |
+| Clarice Lopes | Ricardo Nabuco |
+| João Mota | Ana Laylla |
+---
 
 ## Desenvolvimento
 
