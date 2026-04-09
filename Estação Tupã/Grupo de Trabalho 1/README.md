@@ -1,41 +1,41 @@
 ![Logo](https://github.com/ladata-ufs/ladata-ufs.github.io/blob/main/Assets/LOGO-EXTENSO-CLARA.png)
 
-> Este é o repositório do projeto **Estação Tupã**, desenvolvido no contexto do Lapidados V2. Aqui estão centralizadas as informações gerais do projeto, bem como a organização dos grupos de trabalho e suas respectivas entregas.
+**Atividade:** Análise, tratamento e integração de dados meteorológicos (INMET)
 
+**Mês:** Abril
 
-## Sobre
+**Grupo:** 1
 
-O projeto **Estação Tupã** é uma iniciativa desenvolvida inicialmente por alunos do Colégio Master e agora eles precisam de nós para darmos continuidade a esse *projeto incrível*.
+**Tipo:** Prática
 
-Seu objetivo é *monitorar a quantidade de chuvas na cidade de Aracaju*, a partir da **coleta** e **análise** de dados meteorológicos. A proposta envolve a construção de uma base de dados consistente que permita, futuramente, a realização de análises preditivas relacionadas a dados pluviométricos.
+**Prazo:** —
 
-O projeto parte de um problema real: a ocorrência de alagamentos em diferentes regiões da cidade. A partir disso, busca-se gerar análises que possam contribuir para uma melhor compreensão desses eventos e, a longo prazo, apoiar **estratégias de prevenção**.
+**Integrantes:** Carlos Augusto • Vinicius Leite • Yamí Nascimento • Francisco Almir • Paulo Rugani • Clarice Lopes • João Mota
 
+---
 
+## Objetivos
 
-## Estrutura do Projeto
+* Compreendam a estruturação do dataset de dados meteorológicos
+* Entendam os principais formatos e variáveis climáticas
+* Sejam capazes de realizar o tratamento dos dados
+* Sejam capazes de integrar as bases de dados (GT1 + GT2)
+* Sejam capazes de realizar análises básicas com os dados
 
-O desenvolvimento é dividido em **Grupos de Trabalho (GTs)**, cada um responsável por uma etapa específica dentro do fluxo de dados do projeto.
+## Metodologia
 
-Nesta primeira fase, as frentes são:
+Deve ser feito um estudo levando em conta os *materiais apresentados* como referências, não limitando a esses, para produzir projeto básico sobre o assunto.
 
-* Coleta e estruturação de dados de alagamento via web scraping
-* Análise, tratamento e integração de dados meteorológicos (INMET)
+O estudo do tema pode ser feito de **maneira individual** ou **assíncrona**, contudo, é recomendado que cada equipe realize uma **reunião semanal** para a *discussão e atualização* para os orientadores.
 
-As responsabilidades, ferramentas e entregas de cada frente estão detalhadas nas respectivas pastas dos grupos.
+Ao fim, a equipe, em conjunto, deve produzir um projeto que servirá como base para os próximos passos do projeto **Estação Tupã**. Esse projeto consiste em trabalhar com dados meteorológicos do INMET, realizando seu *tratamento*, *organização* e *integração* com os dados coletados pelo GT 2.
 
+Além dos membros do grupo, o [Diretor de Projetos](), o [Presidente](https://github.com/cteimachDCOMP) e o [Vice-Presidente](https://github.com/maic0w) servirão como mediadores e consultores dos trabalhos, acompanhando a evolução do grupo!
 
+## Referências
 
-## Desenvolvimento
+* Dados meteorológicos (INMET): https://tempo.inmet.gov.br/TabelaEstacoes/A001
 
-O projeto segue a proposta do Lapidados de equilibrar **teoria** e **prática**, trabalhando com um *problema real* enquanto desenvolve *fundamentos técnicos e analíticos* na área de dados.
+* Python Para Análise de Dados - O'REILLY
 
-Ao longo do desenvolvimento, os participantes irão lidar com etapas como coleta, tratamento, integração e análise de dados, além da organização do trabalho em equipe e comunicação de resultados.
-
-As decisões técnicas |`linguagens, bibliotecas e ferramentas`| ficam a cargo de cada grupo, contudo, uso do GitHub é **OBRIGATÓRIO** para versionamento e organização do projeto.
-
-
-## Observações
-
-Este repositório concentra apenas a **visão geral** do projeto. Os detalhes operacionais, instruções específicas e critérios de cada atividade estão descritos dentro das pastas de cada **Grupo de Trabalho**.
-
+* Buscas no github/kaggle de repositórios e datasets que contenham análise de dados meteorológicos
