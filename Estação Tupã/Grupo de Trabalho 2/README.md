@@ -40,7 +40,7 @@ Ao fim, a equipe, em conjunto, deve produzir um projeto que servirá como base p
 
 A partir disso, vocês farão uma *raspagem dos dados* que acharem mais relevantes e construirão um dataset para que seja possível a **análise** e **integração** com os dados do INMET (`tarefa realizada pelo GT 1`).
 
-Além dos membros do grupo, o [Diretor de Projetos](), o [Presidente](https://github.com/cteimachDCOMP) e o [Vice-Presidente](https://github.com/maic0w) servirão como mediadores e consultores dos trabalhos, acompanhando a evolução do grupo!
+Além dos membros do grupo, o [Diretor de Projetos](https://github.com/LucasFe3152), o [Presidente](https://github.com/cteimachDCOMP) e o [Vice-Presidente](https://github.com/maic0w) servirão como mediadores e consultores dos trabalhos, acompanhando a evolução do grupo!
 
 
 
