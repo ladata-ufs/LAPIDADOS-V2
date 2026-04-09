@@ -1,116 +1,57 @@
 ![Logo](https://github.com/ladata-ufs/ladata-ufs.github.io/blob/main/Assets/LOGO-EXTENSO-CLARA.png)
 
-# Lapidados v2
 
->Esse é o repositório oficial do lapidados v2, o melhor programa de capacitação de toda a **Via Láctea**.
+**Atividade:** Coleta e estruturação de dados de alagamento via web scraping
 
-Aqui é o ponto central de tudo o que vai acontecer, desde os roteiros/ementas que trazem as descrições das atividades até as pastas onde vocês adicionarão as entregas.
+**Mês:** Abril
 
+**Grupo:** 2
 
----
+**Tipo:** Prática
 
-## Sumário
+**Prazo:** —
 
-* [Sobre](#sobre)
-* [Missão](#missão)
-* [Visão](#visão)
-* [Estrutura do Programa](#estrutura-do-programa)
-* [Desenvolvimento](#desenvolvimento)
-* [Entregas](#entregas)
-* [Estrutura do Repositório](#estrutura-do-repositório)
-* [Acompanhamento](#acompanhamento)
+**Integrantes:** Letícia Rezende • Luiza Accioly • Daivik Celeste • Guilherme Almeida • Ana Julia • Ricardo Nabuco • Ana Laylla
 
 ---
 
-## Sobre
 
-O **Lapidados v2** é um programa de capacitação interno da LADATA voltado ao desenvolvimento prático de habilidades na área de dados.
+## Objetivos
 
-A proposta do programa é inserir os ligantes em projetos que simulam cenários reais, tanto do mercado de trabalho quanto da pesquisa acadêmica. Durante esse processo, os participantes são acompanhados pelos diretores da liga, que atuam como consultores ao longo do desenvolvimento.
+* Compreendam a estruturação básica de uma página/site na Web
+* Entendam a linguagem de marcação HTML e seus principais elementos
+* Sejam capazes de fazer requisições na web
+* Conheçam e compreendam as principais bibliotecas para web scraping e suas funcionalidades:
 
+  > Beautiful Soup
 
-
-## Missão
-
-Capacitar os ligantes, tornando-os mais preparados para atuar no mercado de trabalho e/ou seguir carreira acadêmica na área de dados.
-
-
-
-## Visão
-
-Formar cientistas de dados completos e gerar impacto na trajetória acadêmica e profissional dos participantes.
+  > Selenium
+* Sejam capazes de realizar um web scraping simples utilizando as bibliotecas estudadas
 
 
-## Estrutura do Programa
 
-Os participantes são organizados em grupos de trabalho (GTs), geralmente divididos em duas frentes com focos técnicos distintos.
+## Metodologia
 
-* Duração orientada à conclusão dos projetos
-* Reuniões quinzenais com os diretores
-* Organização interna dos grupos de forma autônoma
+Deve ser feito um estudo levando em conta os *livros apresentados* como referências, não limitando a esses, para produzir projeto básico sobre o assunto.
 
+O estudo do tema pode ser feito de **maneira individual** ou **assíncrona**, contudo, é recomendado que cada equipe realize uma **reunião semanal** para a *discussão e atualização* para os orientadores.
 
-## Desenvolvimento
+Ao fim, a equipe, em conjunto, deve produzir um projeto que servirá como base para os próximos passos do projeto **Estação Tupã**. Esse projeto consistem em pesquisar e selcionar portais de notícia confiáveis, que contenham dados sobre alagamentos em Aracaju de até 10 anos atrás.
 
-O programa busca equilibrar o desenvolvimento de competências técnicas e comportamentais.
+A partir disso, vocês farão uma *raspagem dos dados* que acharem mais relevantes e construirão um dataset para que seja possível a **análise** e **integração** com os dados do INMET (`tarefa realizada pelo GT 1`).
 
-**Competências técnicas:**
-
-* Análise de dados
-* Ciência de dados
-* Engenharia de dados
-
-**Competências comportamentais:**
-
-* Trabalho em equipe
-* Gestão de tarefas
-* Comunicação e apresentação
-
-As tecnologias utilizadas são definidas pelos próprios grupos. O uso do GitHub é obrigatório para organização e versionamento dos projetos.
+Além dos membros do grupo, o [Diretor de Projetos](), o [Presidente](https://github.com/cteimachDCOMP) e o [Vice-Presidente](https://github.com/maic0w) servirão como mediadores e consultores dos trabalhos, acompanhando a evolução do grupo!
 
 
-## Entregas
 
-As entregas variam conforme o projeto e podem incluir:
+## Referências
 
-* Código-fonte
-* Apresentações
-* Relatórios técnicos
+* Beautiful Soup:
+  [https://beautiful-soup-4.readthedocs.io/en/latest/](https://beautiful-soup-4.readthedocs.io/en/latest/)
 
-## Estrutura do Repositório
+* Selenium:
+  [https://selenium-python.readthedocs.io/](https://selenium-python.readthedocs.io/)
 
-A organização do repositório segue a estrutura abaixo:
+* *Web Scrapping with Python* — O'Reilly
 
-```
-/
-├── projeto/
-│   ├── grupo-1/
-│   │   ├── info-projeto.md
-│   │   └── entregas/
-│   ├── grupo-2/
-│   │   ├── info-projeto.md
-│   │   └── entregas/
-│   └── materiais-apoio/
-```
-
-Cada pasta representa um projeto do lapidados. Dentro delas estão organizados os grupos, informações importantes e materiais necessários para execução das atividades.
-
-As informações incluem:
-
-* Objetivos
-* Descrição das atividades
-* Requisitos de entrega
-* Referências
-* Critérios de análise
-
-## Acompanhamento
-
-O Lapidados não utiliza um modelo tradicional de avaliação.
-
-O acompanhamento é realizado com base na evolução dos participantes ao longo do projeto, considerando:
-
-* Aprendizado adquirido
-* Participação e engajamento
-* Dificuldades enfrentadas
-
-O feedback ocorre de forma contínua durante o desenvolvimento e é consolidado ao final de cada projeto.
+* Buscas em github de repositórios que usam WebScrapping
