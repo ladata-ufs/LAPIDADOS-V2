@@ -247,7 +247,6 @@ class RelatorioINMET:
 
 
 if __name__ == "__main__":
-    # CORREÇÃO: Use apenas o caminho do diretório, não uma tupla de arquivos
     diretorio = "/home/krpto/Documentos/UFS/LADATA/Estação Tupa/Semana 1/daods/"
     
     print("Iniciando processamento dos dados INMET...")
