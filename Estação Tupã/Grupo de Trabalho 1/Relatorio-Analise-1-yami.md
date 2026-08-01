@@ -33,7 +33,7 @@ O fluxo foi desenvolvido para varrer recortes anuais, extrair metadados, verific
 
 # Organizacao dos Dados
 
-## dados_brutos/
+## Dados brutos - INMET (2016-25)/
 
 Contem os arquivos originais em formato CSV obtidos junto ao portal do INMET.
 
@@ -44,7 +44,7 @@ Esses arquivos permanecem inalterados durante todo o processamento.
 
 ---
 
-## dados_tratados/
+## Dados Tratados - INMET (2016-25)/
 
 Armazena os artefatos produzidos apos a execucao dos scripts de pipeline.
 
@@ -77,7 +77,7 @@ As principais etapas executadas sao:
 
 ---
 
-## consolidador_dados_inmet.py
+## pipeline_consolidacao.py
 
 Responsavel por unificar toda a serie historica.
 
