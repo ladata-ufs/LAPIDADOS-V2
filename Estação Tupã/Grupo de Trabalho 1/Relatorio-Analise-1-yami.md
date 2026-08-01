@@ -12,21 +12,21 @@ O fluxo foi desenvolvido para varrer recortes anuais, extrair metadados, verific
 
 ```
 .
-├── dados_brutos/
+├── Dados brutos - INMET (2016-25)/
 │   ├── INMET_NE_SE_A409_ARACAJU_01-01-2016_A_31-12-2016.CSV
 │   ├── INMET_NE_SE_A409_ARACAJU_01-01-2017_A_31-12-2017.CSV
 │   ├── ...
 │   └── INMET_NE_SE_A409_ARACAJU_01-01-2025_A_31-12-2025.CSV
 │
 ├── gerador_relatorios_inmet.py
-├── consolidador_dados_inmet.py
+├── pipeline_consolidacao.py
 │
-├── dados_tratados/
+├── Dados Tratados - INMET (2016-25)/
 │   ├── dados_inmet_consolidados.csv
 │   ├── relatorio_semana1.pdf
 │   ├── sumario_estacoes.json
 │   └── metadados_arquivos.json
-└── README.md
+└── Relatorio-Analise-1-yami.md
 ```
 
 ---
@@ -96,7 +96,7 @@ Dados Brutos INMET (2016-2025)
                +-----------------------------------+
                |                                   |
                v                                   v
-  gerador_relatorios_inmet.py         consolidador_dados_inmet.py
+  gerador_relatorios_inmet.py         pipeline_consolidacao.py
                |                                   |
                v                                   v
      relatorio_semana1.pdf            dados_inmet_consolidados.csv
