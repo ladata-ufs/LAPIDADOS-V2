@@ -1,6 +1,7 @@
 import logging
 
 from ajn1_scraper import AJN1Scraper
+from scraper_a8se import A8SEScraper
 from scraper_sosergipe import SoSergipeScraper
 
 logging.basicConfig(
@@ -10,17 +11,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-visual_line = "=========================================="
-
 
 def run_all_scrapers(search_term: str = "ALAGAMENTO", headless: bool = True) -> None:
     """
-    Executa sequencialmente todos os scrapers configurados (AJN1 e Só Sergipe)
+    Executa sequencialmente todos os scrapers configurados (AJN1, Só Sergipe e A8SE)
     e exporta os arquivos CSV resultantes diretamente para a pasta 'dados_brutos'.
     """
-    logger.info(visual_line)
+    logger.info("==========================================")
     logger.info("INICIANDO EXECUÇÃO GERAL DOS SCRAPERS")
-    logger.info(visual_line)
+    logger.info("==========================================")
 
     # 1. Scraper AJN1
     logger.info("\n>>> Executando Raspador AJN1...")
@@ -43,10 +42,21 @@ def run_all_scrapers(search_term: str = "ALAGAMENTO", headless: bool = True) -> 
         expanded_filename="explanded__sosergipe_data.csv",
     )
 
-    logger.info(f"\n{visual_line}")
+    # 3. Scraper A8SE
+    logger.info("\n>>> Executando Raspador A8SE...")
+    a8se_search_url = f"https://a8se.com/pesquisa/1788530302/{search_term.lower()}"
+    a8se = A8SEScraper(search_url=a8se_search_url, headless=headless)
+    a8se_articles = a8se.run()
+    a8se.export_csvs(
+        a8se_articles,
+        required_filename="requirde_a8se_data.csv",
+        expanded_filename="explanded__a8se_data.csv",
+    )
+
+    logger.info("\n==========================================")
     logger.info("TODOS OS SCRAPERS FORAM EXECUTADOS COM SUCESSO!")
     logger.info("Os arquivos foram gerados na pasta 'dados_brutos'.")
-    logger.info(visual_line)
+    logger.info("==========================================")
 
 
 if __name__ == "__main__":
