@@ -27,7 +27,7 @@ class AJN1Scraper(BaseScraper):
             self._init_driver()
 
         logger.info(f"[{self.nome_portal}] Acessando URL: {url}")
-        self.driver.get(url)
+        self.safe_get(url)
 
         try:
             WebDriverWait(self.driver, self.timeout).until(
@@ -53,7 +53,9 @@ class AJN1Scraper(BaseScraper):
             excerpt_tag = article_tag.select_one(".archive-card-excerpt")
             texto = excerpt_tag.get_text(strip=True) if excerpt_tag else ""
 
-            localizacao = self.location_extractor.extract(title, texto)
+            localizacao = (
+                self.location_extractor.extract_aracaju_location(title, texto) or ""
+            )
 
             return ArticleData(
                 data=date_str,

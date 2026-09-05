@@ -35,7 +35,7 @@ class A8SEScraper(BaseScraper):
             self._init_driver()
 
         logger.info(f"[{self.nome_portal}] Acessando URL: {url}")
-        self.driver.get(url)
+        self.safe_get(url)
 
         try:
             WebDriverWait(self.driver, self.timeout).until(
@@ -81,7 +81,9 @@ class A8SEScraper(BaseScraper):
             if not title:
                 return None
 
-            localizacao = self.location_extractor.extract(title, texto)
+            localizacao = (
+                self.location_extractor.extract_aracaju_location(title, texto) or ""
+            )
 
             return ArticleData(
                 data=date_str,

@@ -6,6 +6,7 @@ from typing import ClassVar
 
 import pandas as pd
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -45,115 +46,105 @@ class ArticleData:
 
 class LocationExtractor:
     """
-    Classe responsável por identificar e extrair nomes de municípios de Sergipe
-    ou bairros citados no texto ou título da notícia.
+    Classe responsável por identificar localizações referentes a Aracaju e seus bairros.
+    Se a notícia não mencionar Aracaju nem nenhum de seus bairros, ela é descartada.
     """
 
-    LOCATIONS_SERGIPE: ClassVar[tuple[str, ...]] = (
+    ARACAJU_LOCATIONS: ClassVar[tuple[str, ...]] = (
         "Aracaju",
-        "Nossa Senhora do Socorro",
-        "Lagarto",
-        "Itabaiana",
-        "Estância",
-        "São Cristóvão",
-        "Maruim",
-        "Laranjeiras",
-        "Barra dos Coqueiros",
-        "Propriá",
-        "Tobias Barreto",
-        "Simão Dias",
-        "Itaporanga d'Ajuda",
-        "Capela",
-        "Canindé de São Francisco",
-        "Neópolis",
-        "Japaratuba",
-        "Campo do Brito",
-        "Boquim",
-        "Carmópolis",
-        "Pirambu",
-        "Nossa Senhora das Dores",
-        "Poço Redondo",
-        "Porto da Folha",
-        "Umbaúba",
-        "Itabaianinha",
-        "Nossa Senhora da Glória",
-        "Cedro de São João",
-        "Sergipe",
         "Grande Aracaju",
-        # Bairros conhecidos de Aracaju
-        "Lamarão",
-        "Jabotiana",
-        "Jardins",
-        "Bugio",
-        "Santo Antônio",
-        "Centro",
-        "13 de Julho",
-        "Atalaia",
-        "Coroa do Meio",
-        "Farolândia",
-        "Santa Maria",
-        "Santos Dumont",
-        "Industrial",
-        "Siqueira Campos",
-        "Suíssa",
-        "Salgado Filho",
-        "Soledade",
-        "Aeroporto",
-        "Ponto Novo",
-        "Luzia",
-        "Grageru",
-        "Inácio Barbosa",
         "Zona Sul",
         "Zona Norte",
+        # Bairros de Aracaju
+        "13 de Julho",
+        "Aeroporto",
+        "América",
+        "Atalaia",
+        "Bugio",
+        "Capucho",
+        "Centro",
+        "Cidade Nova",
+        "Cirurgia",
+        "Coroa do Meio",
+        "17 de Março",
+        "Dezessete de Março",
+        "Dom Luciano",
+        "Farolândia",
+        "Getúlio Vargas",
+        "Grageru",
+        "Inácio Barbosa",
+        "Industrial",
+        "Jabotiana",
+        "Japãozinho",
+        "Jardins",
+        "José Conrado de Araújo",
+        "Lamarão",
+        "Luzia",
+        "Marés",
+        "Mosqueiro",
+        "Novo Paraíso",
+        "Olaria",
+        "Osvaldo Aranha",
+        "Palmeira",
+        "Pereira Lobo",
+        "Ponto Novo",
+        "Porto D'Danta",
+        "Salgado Filho",
+        "Santa Maria",
+        "Santo Antônio",
+        "Santos Dumont",
+        "São Conrado",
+        "São José",
+        "Siqueira Campos",
+        "Soledade",
+        "Suíssa",
+        "Veneza",
     )
 
     def __init__(self):
-        escaped_cities = [re.escape(city) for city in self.LOCATIONS_SERGIPE]
-        self.city_pattern = re.compile(
-            rf"\b({'|'.join(escaped_cities)})\b", re.IGNORECASE
-        )
-        self.preposition_pattern = re.compile(
-            r"\b(?:em|no|na|nos|nas|para|de)\s+([A-ZÀ-Ú][a-zà-ú]+(?:\s+(?:de|da|do|dos|das|e)\s+[A-ZÀ-Ú][a-zà-ú]+|\s+[A-ZÀ-Ú][a-zà-ú]+)*)",
-            re.UNICODE,
+        escaped_aracaju = [re.escape(loc) for loc in self.ARACAJU_LOCATIONS]
+        self.aracaju_pattern = re.compile(
+            rf"\b({'|'.join(escaped_aracaju)})\b", re.IGNORECASE
         )
         self.bairro_pattern = re.compile(
             r"\bbairro\s+([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+)*)",
             re.IGNORECASE,
         )
 
-    def extract(self, title: str, text: str) -> str:
+    def extract_aracaju_location(self, title: str, text: str) -> str | None:
         """
-        Extrai localizações combinando busca por municípios/bairros de Sergipe,
-        padrões de bairro e heurísticas gramaticais de preposição.
+        Extrai as localizações de Aracaju e seus bairros presentes no título ou texto.
+        Retorna uma string com os locais de Aracaju encontrados ou None se Aracaju/bairros não forem mencionados.
         """
         combined_content = f"{title}. {text}"
         found_locations = set()
 
-        # 1. Menções diretas a "bairro X"
+        # 1. Busca menções diretas a "bairro X" se X for um dos bairros de Aracaju conhecidos
         bairro_matches = self.bairro_pattern.findall(combined_content)
         for b in bairro_matches:
-            found_locations.add(f"Bairro {b.strip().title()}")
+            b_name = b.strip().title()
+            if any(
+                re.search(rf"\b{re.escape(loc)}\b", b_name, re.IGNORECASE)
+                for loc in self.ARACAJU_LOCATIONS
+                if loc not in ("Aracaju", "Grande Aracaju", "Zona Sul", "Zona Norte")
+            ):
+                found_locations.add(f"Bairro {b_name}")
 
-        # 2. Busca por municípios e bairros da lista predefinida
-        city_matches = self.city_pattern.findall(combined_content)
+        # 2. Busca por Aracaju e seus bairros da lista predefinida
+        city_matches = self.aracaju_pattern.findall(combined_content)
         for m in city_matches:
             found_locations.add(m.title())
 
         if found_locations:
             return ", ".join(sorted(found_locations))
 
-        # 3. Heurística baseada em preposição no título
-        prep_matches = self.preposition_pattern.findall(title)
-        if prep_matches:
-            return prep_matches[0].strip()
-
-        return "Não informada"
+        return None
 
 
 class BaseScraper:
     """
-    Classe base para gerenciamento de Selenium WebDriver, resolução da pasta de dados brutos
-    e exportação padronizada de arquivos CSV.
+    Classe base para gerenciamento de Selenium WebDriver, resolução da pasta de dados brutos,
+    filtragem direta por Aracaju/bairros e exportação de CSVs.
     """
 
     def __init__(self, nome_portal: str, headless: bool = True, timeout: int = 15):
@@ -181,6 +172,7 @@ class BaseScraper:
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.page_load_strategy = "eager"
         chrome_options.add_argument(
             "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -190,6 +182,25 @@ class BaseScraper:
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
         self.driver.set_page_load_timeout(30)
         logger.info(f"[{self.nome_portal}] WebDriver do Chrome inicializado.")
+
+    def safe_get(self, url: str) -> None:
+        """
+        Navega para a URL tratada contra timeouts de carregamento de scripts externos.
+        Paralisa o carregamento de mídia/anúncios caso exceda o tempo e prossegue com o DOM.
+        """
+        if not self.driver:
+            self._init_driver()
+
+        try:
+            self.driver.get(url)
+        except TimeoutException:
+            logger.warning(
+                f"[{self.nome_portal}] Timeout no carregamento da página (30s) para {url}. Forçando interrupção do carregamento."
+            )
+            try:
+                self.driver.execute_script("window.stop();")
+            except WebDriverException as e:
+                logger.debug(f"Aviso ao executar window.stop(): {e}")
 
     def close(self) -> None:
         """Encerra a sessão do WebDriver."""
@@ -205,9 +216,9 @@ class BaseScraper:
         expanded_filename: str,
     ) -> None:
         """
-        Gera e salva os dois arquivos CSV exigidos na pasta de dados brutos:
-        1. Versão reduzida/requirida (data, localizacao, texto)
-        2. Versão expandida (data, localizacao, texto, titulo, link)
+        Gera e salva os dois arquivos CSV exigidos na pasta de dados brutos.
+        Exporta APENAS matérias que mencionem explicitamente Aracaju ou algum de seus bairros.
+        Descarta totalmente qualquer matéria que não mencione Aracaju ou seus bairros.
         """
         if not articles:
             logger.warning(
@@ -215,8 +226,28 @@ class BaseScraper:
             )
             return
 
-        df_required = pd.DataFrame([a.to_required_dict() for a in articles])
-        df_expanded = pd.DataFrame([a.to_expanded_dict() for a in articles])
+        aracaju_articles: list[ArticleData] = []
+        for a in articles:
+            loc = self.location_extractor.extract_aracaju_location(a.titulo, a.texto)
+            if loc:  # Se houver menção a Aracaju ou a algum de seus bairros
+                a.localizacao = loc
+                aracaju_articles.append(a)
+
+        descartados_count = len(articles) - len(aracaju_articles)
+
+        if descartados_count > 0:
+            logger.info(
+                f"[{self.nome_portal}] Filtragem: {len(aracaju_articles)} matérias de Aracaju/bairros mantidas, {descartados_count} sem menção a Aracaju descartadas."
+            )
+
+        if not aracaju_articles:
+            logger.warning(
+                f"[{self.nome_portal}] Nenhuma matéria com menção a Aracaju/bairros para exportar."
+            )
+            return
+
+        df_required = pd.DataFrame([a.to_required_dict() for a in aracaju_articles])
+        df_expanded = pd.DataFrame([a.to_expanded_dict() for a in aracaju_articles])
 
         req_path = self.raw_data_dir / required_filename
         exp_path = self.raw_data_dir / expanded_filename

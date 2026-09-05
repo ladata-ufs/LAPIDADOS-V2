@@ -71,7 +71,9 @@ class SoSergipeScraper(BaseScraper):
                 text = re.sub(r"Leia Mais\s*»", "", text).strip()
 
                 # 4. Localização (reutilizando a classe unificada de localização)
-                location = self.location_extractor.extract(title, text)
+                location = (
+                    self.location_extractor.extract_aracaju_location(title, text) or ""
+                )
 
                 article_item = ArticleData(
                     data=date, localizacao=location, texto=text, titulo=title, link=link
@@ -122,11 +124,16 @@ class SoSergipeScraper(BaseScraper):
             logger.info(
                 f"[{self.nome_portal}] Acessando a página inicial: {self.base_url}"
             )
-            self.driver.get(self.base_url)
+            self.safe_get(self.base_url)
 
-            WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "post-listing"))
-            )
+            try:
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.CLASS_NAME, "post-listing"))
+                )
+            except TimeoutException:
+                logger.warning(
+                    f"[{self.nome_portal}] Timeout ao aguardar container na página 1."
+                )
 
             first_page_soup = BeautifulSoup(self.driver.page_source, "html.parser")
             total_pages = self._get_total_pages(first_page_soup)
@@ -146,8 +153,8 @@ class SoSergipeScraper(BaseScraper):
                     f"[{self.nome_portal}] Processando Página {page}/{total_pages}: {page_url}"
                 )
 
-                self.driver.get(page_url)
-                time.sleep(2)
+                self.safe_get(page_url)
+                time.sleep(1.5)
 
                 try:
                     WebDriverWait(self.driver, 10).until(
