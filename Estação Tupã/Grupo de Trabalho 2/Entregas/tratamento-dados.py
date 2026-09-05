@@ -20,4 +20,4 @@ for csv in csvS_lidos:
     lista_df.append(df)
 
 dados_concatenados = pd.concat(lista_df, ignore_index=False)
-dados_concatenados.to_csv("dados_concatenados.csv")
+dados_concatenados.to_csv("dados_concatenados.csv", decimal='.', sep=';')
